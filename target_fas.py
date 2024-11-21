@@ -18,7 +18,7 @@ def source_spectrum(freqs, M_w, Vs_src, rho_src, dSigma, R0):
         F = 2 # effect of the free surface, page 641 Boore (2003)
 
         C = R_TP*V*F/(4*np.pi*rho_src*(Vs_src**3)*R0)
-        C = C*(1/1000**3)*(1/100**3) # To cancel cm3 with km3, final units= s^3/(g*km)
+        C = C*(1/1000**3)*(1/100**3) # To cancel cm3 with km3, final units= s^3/(g*km) 
         return C
 
     M_0 = magConv(M_w)
@@ -81,7 +81,7 @@ def get_targetFAS(freqs, sourceParam, pathParam, siteParam):
 
 
     # Computation of spectrums
-    E = source_spectrum(freqs, M_w, Vs_src, rho_src, dSigma, R0) # Source spectrum 
+    E = source_spectrum(freqs, M_w, Vs_src, rho_src, dSigma, R0) 
     P = path_spectrum(freqs, R, Z_r, Q_f, c_Q)
     G = site_spectrum(freqs, k0)
 
@@ -93,9 +93,10 @@ def get_targetFAS(freqs, sourceParam, pathParam, siteParam):
 def plot_targetFAS(freqs, sourceParam, pathParam, siteParam):
     '''plots target Fourier Amplitude Spectrum'''
 
-    fas = get_targetFAS(freqs, sourceParam, pathParam, siteParam)
+    frequencies = freqs
+    target_fas = get_targetFAS(freqs, sourceParam, pathParam, siteParam)
 
-    plt.plot(freqs, fas, label='Target FAS')
+    plt.plot(frequencies, target_fas, label='Target FAS')
     plt.title('Target Fourier Amplitude Spectrum')
     plt.xlabel('Frequency (Hz)')
     plt.ylabel('Fourier Amplitude')
@@ -104,7 +105,6 @@ def plot_targetFAS(freqs, sourceParam, pathParam, siteParam):
     plt.legend()
     plt.grid(which='both', alpha=0.5)
     plt.show()
-
 
     return None
 
