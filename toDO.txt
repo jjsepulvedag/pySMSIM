@@ -1,1 +1,4 @@
-* move magConv to utils.py
+* Im having problems with the number of accelerations I get. Check it. It is usual twice the number of elements in the time array
+* I have to call target_fas with the frequencies from the white_noise. As white_noise frequencies start at 0, I need to add 0.001 to the target_fas frequencies. Check this. 
+* Create different functions for the corner frequency
+* Finish site spectrum

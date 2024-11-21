@@ -28,7 +28,7 @@ def get_noiseB():
     '''white noise with a box window function'''
     return None
 
-def get_noiseE():
+def get_noiseE(gmParam):
     '''white noise with an Exponential window function'''
 
     gmDuration = gmParam['gmDuration']

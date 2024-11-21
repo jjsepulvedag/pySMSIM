@@ -1,12 +1,9 @@
 import numpy as np
+from utils import magConv
 import matplotlib.pyplot as plt
 
 def source_spectrum(freqs, M_w, Vs_src, rho_src, dSigma, R0):
     '''returns source spectrum'''
-
-    def magConv(M_w):
-        M_0 = 10**((3/2)*(M_w + 10.7)) # eqtn 2.5, Baker et al. (2021)
-        return M_0
 
     def cornerFreq(M_0, Vs_src, dSigma):
             f0 = 4.9e6*Vs_src*(dSigma/M_0)**(1/3) # eqtn 4
