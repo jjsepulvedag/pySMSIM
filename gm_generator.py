@@ -22,7 +22,7 @@ def get_gm(gmParam, sourceParam, pathParam, siteParam):
 def plot_gm(gmParam, sourceParam, pathParam, siteParam):
     '''Plots a single ground motion time series'''
     accs, times = get_gm(gmParam, sourceParam, pathParam, siteParam)
-    accs = accs[:5000]
+    accs = accs[:accs.shape[0]//2+1]
 
     fig, axs = plt.subplots(1,1)
     fig.suptitle('Ground motion record')
@@ -70,7 +70,7 @@ if __name__=='__main__':
 
     # ----------------------- Defining input parameters ---------------------- #
     # Source
-    sourceParam = {'M_w': 4.0, 
+    sourceParam = {'M_w': 7.0, 
                    'Vs_src': 3.6, # km/s
                    'rho_src': 2800, # gm/cc
                    'dSigma':100 # bars
@@ -87,7 +87,7 @@ if __name__=='__main__':
     siteParam = {'k0':0.045 # Lee et al. (2022)
                  }
     # Ground motion
-    gmParam = {'gmDuration': 25, # sec
+    gmParam = {'gmDuration': 50, # sec
                'sampleRate':200 # Hz
                }
 
